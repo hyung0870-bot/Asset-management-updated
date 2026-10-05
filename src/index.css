@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. Theme Variables (Default is Light / White Mode) */
+:root, html.light, [data-theme="light"], .theme-light {
+  --bg-app: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-secondary: #f1f5f9;
+  --bg-input: #ffffff;
+  --border-color: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --text-main: #0f172a;
+  --text-sub: #334155;
+  --text-muted: #64748b;
+  --header-bg: rgba(255, 255, 255, 0.96);
+  --header-border: #e2e8f0;
+  --chart-grid: #e2e8f0;
+  --tooltip-bg: #ffffff;
+  --tooltip-border: #cbd5e1;
+  --tooltip-text: #0f172a;
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --scrollbar-thumb: rgba(148, 163, 184, 0.6);
+  color-scheme: light;
+}
+
+html.warm, [data-theme="warm"], .theme-warm {
+  --bg-app: #faf8f5;
+  --bg-card: #ffffff;
+  --bg-card-secondary: #f4efe6;
+  --bg-input: #ffffff;
+  --border-color: #ebe5dc;
+  --border-subtle: #f3eee6;
+  --text-main: #292524;
+  --text-sub: #44403c;
+  --text-muted: #78716c;
+  --header-bg: rgba(250, 248, 245, 0.96);
+  --header-border: #ebe5dc;
+  --chart-grid: #ebe5dc;
+  --tooltip-bg: #ffffff;
+  --tooltip-border: #d6cebe;
+  --tooltip-text: #292524;
+  --shadow-card: 0 1px 3px 0 rgb(41 37 36 / 0.06);
+  --scrollbar-thumb: rgba(168, 162, 158, 0.6);
+  color-scheme: light;
+}
+
+html.dark, [data-theme="dark"], .theme-dark {
+  --bg-app: #090d16;
+  --bg-card: #131b2e;
+  --bg-card-secondary: #0c1222;
+  --bg-input: #0b1120;
+  --border-color: #24324f;
+  --border-subtle: #1c2842;
+  --text-main: #f8fafc;
+  --text-sub: #cbd5e1;
+  --text-muted: #64748b;
+  --header-bg: rgba(15, 23, 42, 0.92);
+  --header-border: #24324f;
+  --chart-grid: #1e293b;
+  --tooltip-bg: #0f172a;
+  --tooltip-border: #334155;
+  --tooltip-text: #f8fafc;
+  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  --scrollbar-thumb: rgba(100, 116, 139, 0.5);
+  color-scheme: dark;
+}
+
+html.navy, [data-theme="navy"], .theme-navy {
+  --bg-app: #0a1224;
+  --bg-card: #111d38;
+  --bg-card-secondary: #0c152b;
+  --bg-input: #0c152b;
+  --border-color: #1e355b;
+  --border-subtle: #162947;
+  --text-main: #f0f6fc;
+  --text-sub: #bfdbfe;
+  --text-muted: #60a5fa;
+  --header-bg: rgba(10, 18, 36, 0.92);
+  --header-border: #1e355b;
+  --chart-grid: #1e355b;
+  --tooltip-bg: #0c152b;
+  --tooltip-border: #1e355b;
+  --tooltip-text: #f0f6fc;
+  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.35);
+  --scrollbar-thumb: rgba(96, 165, 250, 0.4);
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  touch-action: manipulation;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Form Inputs Color Guarantees */
+input, select, textarea {
+  color: var(--text-main) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+input[type="date"] {
+  color-scheme: light;
+  color: #0f172a !important;
+}
+
+input[type="date"]::-webkit-datetime-edit,
+input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: #0f172a !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: none;
+}
+
+html.dark input[type="date"], [data-theme="dark"] input[type="date"], 
+html.navy input[type="date"], [data-theme="navy"] input[type="date"] {
+  color-scheme: dark;
+  color: #f8fafc !important;
+}
+
+html.dark input[type="date"]::-webkit-datetime-edit,
+html.dark input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+html.dark input[type="date"]::-webkit-datetime-edit-text,
+html.dark input[type="date"]::-webkit-datetime-edit-month-field,
+html.dark input[type="date"]::-webkit-datetime-edit-day-field,
+html.dark input[type="date"]::-webkit-datetime-edit-year-field,
+[data-theme="dark"] input[type="date"]::-webkit-datetime-edit,
+[data-theme="navy"] input[type="date"]::-webkit-datetime-edit {
+  color: #f8fafc !important;
+}
+
+html.dark input[type="date"]::-webkit-calendar-picker-indicator,
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator,
+html.navy input[type="date"]::-webkit-calendar-picker-indicator,
+[data-theme="navy"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+/* iOS Safe Area Helper Classes */
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
+.pt-safe {
+  padding-top: max(1rem, env(safe-area-inset-top, 1rem));
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Recharts Tooltip Override */
+.recharts-default-tooltip {
+  background-color: var(--tooltip-bg) !important;
+  border: 1px solid var(--tooltip-border) !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+  color: var(--tooltip-text) !important;
+}
+
+/* Markdown typography in AI Report */
+.prose-ai h1, .prose-ai h2, .prose-ai h3 {
+  font-weight: 700;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.prose-ai h1 { font-size: 1.35rem; color: var(--text-main); }
+.prose-ai h2 { font-size: 1.15rem; color: #0284c7; }
+.prose-ai h3 { font-size: 1.025rem; color: #0ea5e9; }
+.prose-ai p { margin-bottom: 0.75rem; line-height: 1.65; color: var(--text-sub); }
+.prose-ai ul, .prose-ai ol { margin-left: 1.25rem; margin-bottom: 0.75rem; list-style-type: disc; color: var(--text-sub); }
+.prose-ai li { margin-bottom: 0.35rem; line-height: 1.5; }
+.prose-ai strong { color: var(--text-main); font-weight: 600; }
+.prose-ai blockquote {
+  border-left: 3px solid #0284c7;
+  padding-left: 0.75rem;
+  margin: 0.75rem 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
